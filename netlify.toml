@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "npm run build"
+  command = "eleventy --input=src --output=dist"
 [[redirects]]
   from = "https://kevk.netlify.com/*"
   to = "https://kevk.dev/:splat"
