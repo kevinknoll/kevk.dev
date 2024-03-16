@@ -16,6 +16,7 @@ html[data-theme=dark] {
 	--color-hr: #bbb;
 }
 @media (prefers-color-scheme: dark) {
+	html[data-theme=auto],
 	html:not([data-theme]) {
 		color-scheme: dark;
 		--color-bg: #272727;
