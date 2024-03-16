@@ -16,6 +16,7 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy([
 		"css",
 		"js",
+		"txt",
 	]);
 
 	return {
