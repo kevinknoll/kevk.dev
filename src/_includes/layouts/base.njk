@@ -1,0 +1,103 @@
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Kevin Knoll develops the web</title>
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1fb2b2">
+		<meta name="msapplication-TileColor" content="#00aba9">
+		<meta name="theme-color" content="#f2f2f2">
+		<link rel="stylesheet" href="css/style.css">
+		<script>
+			(() => {
+				const THEME = { AUTO: 'auto', LIGHT: 'light', DARK: 'dark' };
+				const THEME_KEY = 'theme';
+
+				const theme = localStorage.getItem(THEME_KEY) ?? THEME.AUTO;
+				document.documentElement.dataset[THEME_KEY] = theme;
+
+				document.addEventListener('DOMContentLoaded', () => {
+					const el = document.getElementById('theme');
+					if (!el) return;
+
+					el.addEventListener('change', (e) => {
+						const newTheme = e.target.value;
+						document.documentElement.dataset[THEME_KEY] = newTheme;
+						localStorage.setItem(THEME_KEY, newTheme);
+					});
+
+					el.querySelector('input[checked]').removeAttribute('checked');
+					el.querySelector(`input[value="${theme}"]`).setAttribute('checked', '');
+				});
+			})();
+
+		</script>
+	</head>
+	<body>
+		<a href="#content" class="hide" id="skip">Skip to Content</a>
+		<header class="hdr">
+			<div class="wrap">
+				<a href="/" aria-label="Homepage of Kev K dot dev">
+					<svg width="200" height="100" viewbox="0 0 400 200" stroke="#333" stroke-width="10" fill="none" role="img">
+						<path d="
+							M0 5 l25 0 l0 190 l-25 0
+							m35 -95 c50 0 0 -95 50 -95
+							m-50 95 c50 0 0 95 50 95
+						"/>
+
+						<path d="
+							M160 5
+							h-45
+							v190
+							h45
+							m-45 -90
+							h25
+						"/>
+
+						<path d="
+							M190 -2
+							l25 200
+							l5 0
+							l25 -200
+						"/>
+
+						<path d="
+							M315 5 l25 0 l0 190 l-25 0
+							m35 -95 c50 0 0 -95 50 -95
+							m-50 95 c50 0 0 95 50 95
+						"/>
+					</svg>
+				</a>
+			</div>
+		</header>
+		<main class="bdy" id="content">
+			<div class="wrap">
+				{{ content | safe }}
+			</div>
+		</main>
+		<footer class="ftr">
+			<div class="wrap">
+				<p>kevk.dev</p>
+				<fieldset id="theme" class="theme">
+					<legend class="hide">Theme:</legend>
+					<span aria-hidden="true">Theme:</span>
+					<label>
+						<input name="theme" type="radio" value="auto" checked>
+						Auto
+					</label>
+					<label>
+						<input name="theme" type="radio" value="light">
+						Light
+					</label>
+					<label>
+						<input name="theme" type="radio" value="dark">
+						Dark
+					</label>
+				</fieldset>
+			</div>
+		</footer>
+	</body>
+</html>
