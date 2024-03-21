@@ -1,3 +1,5 @@
+const CleanCSS = require("clean-css");
+
 module.exports = function(eleventyConfig) {
 	eleventyConfig.setTemplateFormats([
 		// Templates:
@@ -23,6 +25,9 @@ module.exports = function(eleventyConfig) {
 		"woff",
 		"woff2"
 	]);
+	eleventyConfig.addFilter("cssmin", function(code) {
+		return new CleanCSS({}).minify(code).styles;
+	});
 
 	return {
 		dir: {
