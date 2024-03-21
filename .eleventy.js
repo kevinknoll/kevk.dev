@@ -11,6 +11,7 @@ module.exports = function(eleventyConfig) {
 		"png",
 		"svg",
 		"txt",
+		"webmanifest",
 		"woff",
 		"woff2"
 	]);
@@ -18,6 +19,9 @@ module.exports = function(eleventyConfig) {
 		"css",
 		"js",
 		"txt",
+		"webmanifest",
+		"woff",
+		"woff2"
 	]);
 
 	return {
